@@ -10,14 +10,7 @@ let pesos = [];
 //Umbral del perceptron  
 const constante = 1;
 
-//------------------------------------------ Funciones --------------------------------------------
-//Cambia la imagen por una nueva imagen aleatoria
-function CambiarImagen() {
-    let imagen = document.getElementById("imagen");
-    let numImagen = Math.floor(Math.random() * 101); //Genera un numero aleatorio entre 0 y 100
-    imagen.src = "img/animal ("+numImagen+").jpg";  //Cambia la imagen por una nueva 
-}
-
+//---------------------------------Funciones del perceptron--------------------------------------------
 //Recolecta los datos del formulario 
 function ObtenerDatos() {
     let cuello;
@@ -113,8 +106,12 @@ function CalcularError() {
     } else {
         if (esperado == -1) {
             alert("Se trata de un elefante");
+            LimpiarCampos();
+            CambiarImagen();
         } else {
             alert("Se trata de una jirafa");
+            LimpiarCampos();
+            CambiarImagen();
         }
         return true;
     }
@@ -124,11 +121,13 @@ function CalcularError() {
 function EntrenarPerceptron() {
     let flag = false; 
     ObtenerDatos(); //Obtiene los datos de entrada 
-    do {
-        pesos = [];
-        AsignarPesos(); //Asigna los pesos 
-        FuncionActivacion(); //Obtiene la salida y aplica la funcion de activación 
-        flag = CalcularError(); //Calcula el error 
-    } while (!flag); //Si el error es igual a cero detiene el entrenamiento de lo contrario repite el proceso
-
+    if(validar()){
+        do {
+            pesos = [];
+            AsignarPesos(); //Asigna los pesos 
+            FuncionActivacion(); //Obtiene la salida y aplica la funcion de activación 
+            flag = CalcularError(); //Calcula el error 
+        } while (!flag); //Si el error es igual a cero detiene el entrenamiento de lo contrario repite el proceso
+    }
+    
 }
