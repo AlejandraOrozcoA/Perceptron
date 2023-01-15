@@ -107,7 +107,7 @@ function ValorEsperado() {
 function CalcularError() {
     let esperado = ValorEsperado();
     let activacion = FuncionActivacion();
-    let error = esperado - activacion;
+    let error = esperado - activacion; 
     if (error != 0) {
         return false;  
     } else {
@@ -120,14 +120,15 @@ function CalcularError() {
     }
 }
 
+//Entrenamiento del perceptron
 function EntrenarPerceptron() {
-    let flag = false;
-    ObtenerDatos();
+    let flag = false; 
+    ObtenerDatos(); //Obtiene los datos de entrada 
     do {
         pesos = [];
-        AsignarPesos();
-        FuncionActivacion();
-        flag = CalcularError(); 
-    } while (!flag);
+        AsignarPesos(); //Asigna los pesos 
+        FuncionActivacion(); //Obtiene la salida y aplica la funcion de activación 
+        flag = CalcularError(); //Calcula el error 
+    } while (!flag); //Si el error es igual a cero detiene el entrenamiento de lo contrario repite el proceso
 
 }
