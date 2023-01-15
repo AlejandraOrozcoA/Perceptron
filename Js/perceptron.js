@@ -108,9 +108,26 @@ function CalcularError() {
     let esperado = ValorEsperado();
     let activacion = FuncionActivacion();
     let error = esperado - activacion;
-    if (error == 0) {
-        return true;  
+    if (error != 0) {
+        return false;  
     } else {
-        return false;
+        if (esperado == -1) {
+            alert("Se trata de un elefante");
+        } else {
+            alert("Se trata de una jirafa");
+        }
+        return true;
     }
+}
+
+function EntrenarPerceptron() {
+    let flag = false;
+    ObtenerDatos();
+    do {
+        pesos = [];
+        AsignarPesos();
+        FuncionActivacion();
+        flag = CalcularError(); 
+    } while (!flag);
+
 }
