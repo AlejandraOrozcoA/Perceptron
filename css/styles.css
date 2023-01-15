@@ -1,0 +1,32 @@
+
+.tituloPrincipal {
+    text-align: center;
+    padding: 10px;
+    color: white;
+    margin: 0px;
+    font-size: x-large;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.form-card{
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 100%;
+}
+
+.div-conatiner-carousel{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+img {
+    max-height: 95%;
+    width: 95%;
+    display: block; 
+}
